@@ -45,13 +45,13 @@ function createDiceSVG(value) {
   const circles = dots
     .map(
       (dot) =>
-        `<circle cx="${dot.cx}" cy="${dot.cy}" r="10" fill="#4ADE80" ></circle>`
+        `<circle cx="${dot.cx}" cy="${dot.cy}" r="10" fill="hsla(182, 88%, 74%, 1.00)" ></circle>`
     )
     .join("");
 
   return `
     <svg viewbox="0 0 100 100" class="w-full h-full">
-    <rect width="100" height="100" rx="15" ry="15" fill="#333"></rect>
+    <rect width="100" height="100" rx="15" ry="15" fill="#eb7bebff"></rect>
     ${circles}
     </svg>
     `;
@@ -61,7 +61,7 @@ function addRollToHistory(result) {
   if (noHistoryMessage) noHistoryMessage.remove();
   const item = document.createElement("div");
   item.className =
-    "flex items-center justify-between py-2 border-b border-gray-200 text-gray-700";
+    "flex items-center justify-between py-2 border-b border-stone-400 text-gray-700";
 
   const now = new Date();
 
@@ -70,7 +70,7 @@ function addRollToHistory(result) {
     minute: "2-digit",
   });
 
-  item.innerHTML = `<span class="font-medium">Roll: ${result}</span><span class="text-gray-500 text-sm">${time}</span>`;
+  item.innerHTML = `<span class="font-medium">Roll: ${result}</span><span class="text-rose-400 text-sm">${time}</span>`;
   historyList.prepend(item);
   if (historyList.children.length > 10) historyList.lastChild.remove();
 }
